@@ -1,0 +1,41 @@
+<section class="pt-5">
+  <div class="container mx-auto">
+    <div
+      class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+    >
+      @for (product of productsData; track $index) {
+      <div
+        class="border-teal-900 border-[5px] rounded-lg p-2 flex flex-col justify-between h-full"
+      >
+        <div class="flex-grow h-auto">
+          <img
+            [src]="product.image"
+            class="w-full h-auto object-contain"
+            alt=""
+          />
+        </div>
+        <div class="card-body mt-4">
+          <h2>
+            <span class="font-extrabold text-teal-600">Title:</span>
+            {{ product.title.split(" ", 3).join(" ") }}
+          </h2>
+          <h3>
+            <span class="font-extrabold text-teal-600">Category:</span>
+            {{ product.category }}
+          </h3>
+          <p>
+            <span class="font-extrabold text-teal-600">Description:</span>
+            {{ product.description.split(" ", 10).join(" ") }}
+            <span class="text-pink-600 cursor-pointer">....more</span>
+          </p>
+          <h4>
+            <span class="font-extrabold text-teal-600">Rating:</span>
+            {{ product.rating.rate }}
+            <i class="fa-solid fa-star text-yellow-500"></i>
+          </h4>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>
